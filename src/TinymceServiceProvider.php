@@ -4,10 +4,9 @@
  * @Author       : Jinghua Fan
  * @Date         : 2022-01-12 15:52:56
  * @LastEditors  : Jinghua Fan
- * @LastEditTime : 2022-01-17 19:03:37
+ * @LastEditTime : 2022-01-18 14:29:26
  * @Description  : 佛祖保佑,永无BUG
  */
-
 
 namespace PandaOreo\Tinymce;
 
@@ -21,13 +20,13 @@ class TinymceServiceProvider extends ServiceProvider
     protected $js = [];
     protected $css = [];
 
-    protected $menu = [
-        [
-            'title' => 'tinymce编辑器',
-            'uri' => 'tinymce',
-            'icon' => '', // 图标可以留空
-        ],
-    ];
+    // protected $menu = [
+    //     [
+    //         'title' => 'tinymce编辑器',
+    //         'uri' => 'tinymce',
+    //         'icon' => '', // 图标可以留空
+    //     ],
+    // ];
 
     public function register()
     {
