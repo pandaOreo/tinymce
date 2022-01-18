@@ -148,7 +148,7 @@ class TinymceController extends Field
             [
                 '_token' => csrf_token(),
                 'disk' => $this->disk,
-                'dir' => $this->imageUploadDirectory,
+                'dir' => $this->videoUploadDirectory,
             ]
         );
     }
