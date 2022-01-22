@@ -3,7 +3,7 @@
  * @Author       : Jinghua Fan
  * @Date         : 2022-01-18 13:58:11
  * @LastEditors  : Jinghua Fan
- * @LastEditTime : 2022-01-22 13:33:29
+ * @LastEditTime : 2022-01-22 13:40:45
  * @Description  : 佛祖保佑,永无BUG
  */
 
@@ -19,6 +19,11 @@ class FileUploadController
     public function handle(Request $request)
     {
         $disk = $this->disk();
+        // 判断是否是删除文件请求
+        if ($this->isDeleteRequest()) {
+            // 删除文件并响应
+            return $this->deleteFileAndResponse($disk);
+        }
 
         // 获取上传的文件
         $file = $request->file;
@@ -36,10 +41,16 @@ class FileUploadController
 
     public function uploadVideo(Request $request)
     {
+        $disk = $this->disk();
+        // 判断是否是删除文件请求
+        if ($this->isDeleteRequest()) {
+            // 删除文件并响应
+            return $this->deleteFileAndResponse($disk);
+        }
         $file = $request->file;
         $newName = md5($file->getClientOriginalName() . time() . rand()) . '.' . $file->getClientOriginalExtension();
         $dir = 'tinymce/video';
-        $disk = $this->disk();
+
         $result = $disk->putFileAs($dir, $file, $newName);
 
         $path = "{$dir}/$newName";
