@@ -18,9 +18,7 @@ class FileUploadController
 
     public function handle(Request $request)
     {
-        $disk = $request->disk;
-
-        $disk = $this->disk($disk);
+        $disk = $this->disk();
 
         // 获取上传的文件
         $file = $request->file;
