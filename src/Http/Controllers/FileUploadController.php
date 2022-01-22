@@ -3,7 +3,7 @@
  * @Author       : Jinghua Fan
  * @Date         : 2022-01-18 13:58:11
  * @LastEditors  : Jinghua Fan
- * @LastEditTime : 2022-01-22 13:27:19
+ * @LastEditTime : 2022-01-22 13:33:29
  * @Description  : 佛祖保佑,永无BUG
  */
 
@@ -39,7 +39,7 @@ class FileUploadController
         $file = $request->file;
         $newName = md5($file->getClientOriginalName() . time() . rand()) . '.' . $file->getClientOriginalExtension();
         $dir = 'tinymce/video';
-        $disk = $this->disk('admin');
+        $disk = $this->disk();
         $result = $disk->putFileAs($dir, $file, $newName);
 
         $path = "{$dir}/$newName";
